@@ -32,7 +32,7 @@ if [ ! -f $anaconda ]
 fi
 chmod +x $anaconda
 
-sudo -u root ./$anaconda -b -p /opt/anaconda
+sudo ./$anaconda -b -p /opt/anaconda
 
 conda_path=/opt/anaconda/bin
 echo $conda_path
@@ -49,14 +49,14 @@ if ! grep -qs "$fingerprint" ~/.ssh/known_hosts; then
     echo "$fingerprint" >> ~/.ssh/known_hosts
 fi
 
-# Vagrant should've created /srv/www according to the Vagrantfile,
+# Vagrant should've created /srv/notebooks according to the Vagrantfile,
 # but let's make sure it exists even if run directly.
 if [[ ! -d '/srv/notebooks' ]]; then
     sudo mkdir '/srv/notebooks'
     sudo chown vagrant:vagrant '/srv/notebooks'
 fi
 
-
+# Create script to automatically run jupyter-notebook service on startup/reload
 jupyter=$conda_path/jupyter-notebook
 log="/home/vagrant/jupyter.log"
 jupyter_args="--ip=0.0.0.0 --notebook-dir=/srv/notebooks"
