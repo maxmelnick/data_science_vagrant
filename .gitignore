@@ -1,5 +1,6 @@
 .DS_Store
 /ipython
-Miniconda2-latest-Linux-x86_64.sh
+Anaconda2-4.0.0-Linux-x86_64.sh
 .ipynb_checkpoints/
 .vagrant/
+/notebooks
