@@ -61,7 +61,6 @@ jupyter=$conda_path/jupyter-notebook
 log="/home/vagrant/jupyter.log"
 jupyter_args="--ip=0.0.0.0 --notebook-dir=/srv/notebooks"
 run="start-stop-daemon --start --chuid vagrant:vagrant --exec $jupyter -- $jupyter_args >> $log 2>&1 &"
-echo $run
 eval $run
 
 cat << UPSTART | sudo tee /etc/init/jupyter.conf > /dev/null
